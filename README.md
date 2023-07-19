@@ -1,7 +1,7 @@
 # Project Title
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Build Status](https://github.com/Sunil-Kumar-M/Cypress-EnchantingTravels)](SUNIL)
+[![Build Status](https://travis-ci.org/yourusername/projectname.svg?branch=master)](https://github.com/Sunil-Kumar-M/Cypress-EnchantingTravels/tree/main)
 
 ## Description
 
