@@ -1,12 +1,13 @@
-/// <reference types="Cypress" />
-/// <reference types="cypress-iframe" />
-/// <reference types="cypress-xpath" />
+// / <reference types="Cypress" />
+// / <reference types="cypress-iframe" />
+// / <reference types="cypress-xpath" />
 import UserDetailsPage from "../../support/pageObjects/UserDetailsPage";
 import BookingConfirmationPage from "../../support/pageObjects/BookingConfirmationPage";
 import PaymentDetailsPage from "../../support/pageObjects/PaymentDetailsPage";
+import ErrorMessagesSectionPage from "../../support/pageObjects/ErrorMessagesSectionPage";
 import "cypress-iframe";
 
-describe.only("Single User Registration Flow Test cases", function () {
+describe.skip("Single User Registration Flow Test cases", function () {
     before(function () { // runs once before all tests in the block
         cy.fixture("singleUserDataExample").then(function (data) {
             this.data = data;
@@ -17,13 +18,6 @@ describe.only("Single User Registration Flow Test cases", function () {
         });
         cy.viewport(1920, 1080);
     });
-
-    // before(function () {
-    // // runs once before all tests in the block
-    // cy.fixture("userMasterCardDetails").then(function (cardData) {
-    //     this.cardData = cardData;
-    // });
-    // });
 
     it("Validate on Providing the Actual possitive inputs for one user", function () {
         const userDeatilsPage = new UserDetailsPage();
@@ -63,9 +57,11 @@ describe.only("Single User Registration Flow Test cases", function () {
         bookingConfirmationPage.getTermsAndConditionsCheckBox().should("include.text", "I have read, understood and accepted the booking").click();
         bookingConfirmationPage.getGoToPaymentsButton().click();
 
-        // Payment Details Page and with validation steps are below
-        cy.origin('https://www.ipg-online.com', () => {
+        // NOTE: Payment Details Page and with validation steps are below. 
+        // This code cannot be executed due to query params and the session Id's and other authentication details.
+       /*cy.origin('https://www.ipg-online.com', () => {
             const paymentDetailsPage = new PaymentDetailsPage();
+            cy.visit('') // Parameters are required to visit the particular page.
             paymentDetailsPage.getPaymentPageHeading().should('contain', "Please provide payment details");
             paymentDetailsPage.getCardNumberTextField().type(this.cardData.cardNumber);
             paymentDetailsPage.getCardHolderNameField().type(this.data.firstName);
@@ -73,43 +69,56 @@ describe.only("Single User Registration Flow Test cases", function () {
             paymentDetailsPage.getExpiryYearOptions().select(this.cardData.cardExpiryYear);
             paymentDetailsPage.getCardCodeTextField().type(this.cardData.cardSecurityCode);
             paymentDetailsPage.getContinueButton().click();
-
-        })
+        })*/
+        
+      });
     });
-});
-
-describe.skip("Multiple User Registration Flow Test cases", function () {
-    before(function () { // runs once before all tests in the block
+    
+    const testData = require('../../fixtures/multipleUserDataExample.json')
+    describe.only("Multiple User Registration Flow Test cases", function () {
+      beforeEach(function () { // runs once before all tests in the block
         cy.fixture("singleUserDataExample").then(function (data) {
-            this.data = data;
+          this.data = data;
         });
         cy.viewport(1920, 1080);
-    });
+      });
+      testData.forEach(test => {
+        it('Automation testing With Multiple Set of test data' + test.testName, () => {
+          const userDeatilsPage = new UserDetailsPage();
+          const errorMessageSectionPage = new ErrorMessagesSectionPage();
+            
+            cy.visit("/booking/passengers#!departureCode=TEJA241020_FI&adults=1&children=0&tripcode=TEJ");
+            // Adding all the validated first user details in the below section and validatating the data.
+            cy.title().should("contain", "Trip Booking | Exodus");
+            userDeatilsPage.getLeadPassendersFormTitle().should("contain", "Lead passenger details");
+            userDeatilsPage.getTitleDropdown().select(test.title);
+            userDeatilsPage.getFirstNameField().type(test.firstName);
+            userDeatilsPage.getMiddleNameField().type(test.middleName);
+            userDeatilsPage.getLastNameField().type(test.lastName);
+            userDeatilsPage.getgenderDropdown().select(test.gender);
+            userDeatilsPage.getDateOfBirth().type(test.dob);
+            // Added wait for the iFrame to get loaded, It can be handled with the help of Dev, The below code is temp
+            cy.wait(20000);
+            userDeatilsPage.getEmailAddressField().type(test.email);
+            userDeatilsPage.getPhoneNumberField().type(test.phoneNumber);
+            userDeatilsPage.getEnterAddressManualButton().click();
+            userDeatilsPage.getAddressLineOneField().type(test.addressLine1);
+            userDeatilsPage.getAddressLineTwoField().type(test.addressLine2);
+            userDeatilsPage.getCityField().type(test.city);
+            userDeatilsPage.getStateField().type(test.state);
+            userDeatilsPage.getPostCodeField().type(test.zip);
+            userDeatilsPage.getCountryDropdown().select(test.country);
 
-    it("Validate on Providing the Actual possitive inputs for 2 users", function () {
-        const userDeatilsPage = new UserDetailsPage();
-        cy.visit("/booking/passengers#!departureCode=TEJA241020_FI&adults=1&children=0&tripcode=TEJ");
-        // Adding all the validated first user details in the below section and validatating the data.
-        cy.title().should("contain", "Trip Booking | Exodus");
-        userDeatilsPage.getLeadPassendersFormTitle().should("contain", "Lead passenger details");
-        userDeatilsPage.getTitleDropdown().select(this.data.title);
-        userDeatilsPage.getFirstNameField().type(this.data.firstName);
-        userDeatilsPage.getMiddleNameField().type(this.data.middleName);
-        userDeatilsPage.getLastNameField().type(this.data.lastName);
-        userDeatilsPage.getgenderDropdown().select(this.data.gender);
-        userDeatilsPage.getDateOfBirth().type(this.data.dob);
-        // Added wait for the iFrame to get loaded, It can be handled with the help of Dev, The below code is temp
-        cy.wait(20000);
-        userDeatilsPage.getEmailAddressField().type(this.data.email);
-        userDeatilsPage.getPhoneNumberField().type(this.data.phoneNumber);
-        userDeatilsPage.getEnterAddressManualButton().click();
-        userDeatilsPage.getAddressLineOneField().type(this.data.addressLine1);
-        userDeatilsPage.getAddressLineTwoField().type(this.data.addressLine2);
-        userDeatilsPage.getCityField().type(this.data.city);
-        userDeatilsPage.getStateField().type(this.data.state);
-        userDeatilsPage.getPostCodeField().type(this.data.zip);
-        userDeatilsPage.getCountryDropdown().select(this.data.country);
-
-        userDeatilsPage.getAddAdultPassangerButton().click();
-    });
+            if (test.testName === 'Invalid Data'){
+              cy.log('Need to work on Error Handling')
+              errorMessageSectionPage.getTitleErrorMessage(test.titleErrorMessge)
+              errorMessageSectionPage.getGenderErrorMessage(test.genderErrorMessage)
+              errorMessageSectionPage.getDateOfBirthErrorMessage(test.dobErrorMessage)
+              errorMessageSectionPage.getEmailErrorMessage(test.emailErrorMessage)
+              errorMessageSectionPage.getPhoneNumberErrorMessage(test.phoneNumberErrorMessage)
+            }
+    
+            // userDeatilsPage.getAddAdultPassangerButton().click()
+        })
+    })
 });

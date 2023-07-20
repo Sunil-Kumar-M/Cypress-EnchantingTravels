@@ -1,5 +1,6 @@
 [
   {
+    "testName" : "Valid Male Data",
     "title": "Mr.",
     "firstName": "Sunil",
     "middleName": "Kumar",
@@ -16,11 +17,12 @@
     "country": "India"
   },
   {
+    "testName" : "Valid Female Data",
     "title": "Ms.",
     "firstName": "Rashmi",
     "middleName": "V",
     "lastName": "Gowda",
-    "gender": "Feamale",
+    "gender": "Female",
     "dob":"1991-04-06",
     "email": "random7684@gmail.com",
     "phoneNumber": "9658456546",
@@ -32,19 +34,25 @@
     "country": "India"
   },
   {
-    "title": "",
-    "firstName": "",
-    "middleName": "",
-    "lastName": "",
-    "gender": "Male",
-    "dob":"1989-11-06",
-    "email": "rasnjdfhh.04@gmail.com",
-    "phoneNumber": "2222222222",
-    "addressLine1": "",
-    "addressLine2": "Sameerapuram, KG Nagar",
-    "city": "Bangalore",
-    "state": "Karnataka",
-    "zip": "123",
-    "country": "India"
+    "testName" : "Invalid Data",
+    "title": "Please select a title",
+    "firstName": " ",
+    "middleName": " ",
+    "lastName": " ",
+    "gender": "Please select a gender",
+    "dob":"2023-11-06",
+    "email": "rasnjdfhh",
+    "phoneNumber": "1234",
+    "addressLine1": " ",
+    "addressLine2": " ",
+    "city": " ",
+    "state": " ",
+    "zip":  " ",
+    "country": "Please select a country",
+    "titleErrorMessge" : "There are errors below, please correct them and try again",
+    "genderErrorMessage" : "Gender is required.",
+    "dobErrorMessage" : "A valid date of birth over the age of 18 is required for the passenger.",
+    "emailErrorMessage" : "A valid email address is required.",
+    "phoneNumberErrorMessage" : "A valid phone number is required."
   }
 ]
