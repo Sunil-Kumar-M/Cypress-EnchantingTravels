@@ -14,15 +14,22 @@ class BookingConfirmationPage {
         '(//div[@class="customise-form"]//*[@class="checkbox-item"])[2]//span[1]'
       );
     }
-  
-    getExtraMarketingCheckOptions() {
+
+    getContactMeMarketingOptions(){
+      return cy.xpath('//*[text()="Contact me about regional flight options"]')
+    }
+
+  // payOnlyDeposit
+    getPayOnlyDepositAmountOptions() {
       return cy.xpath(
-        '(//div[@class="customise-form"]//*[@class="checkbox-item"])[3]//span[1]'
+        '(//div[@class="payment-type"]//*[@class="checkbox-item"])//span[1]'
       );
     }
   
     getSpecialRequestTextField() {
-      return cy.get("#:r1g:");
+      return cy.xpath(
+        '//label[text()="Special Requests"]/..//textarea'
+      )
     }
   
     getHeadingOftheSections() {
@@ -39,6 +46,10 @@ class BookingConfirmationPage {
   
     getTermsAndConditionsCheckBox(){
       return cy.get('.checkbox.margin-bottom-20')
+    }
+
+    getGoToPaymentsButton(){
+      return cy.xpath('//button[text()="Go to payment"]')
     }
   
   }
