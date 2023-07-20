@@ -1,3 +1,7 @@
+/// <reference types="Cypress" />
+/// <reference types="cypress-iframe" />
+/// <reference types="cypress-xpath" />
+
 class ErrorMessagesSectionPage {
     getTitleErrorMessage(errorValue){
         return cy.get('.error-message-div').should('contain', errorValue)

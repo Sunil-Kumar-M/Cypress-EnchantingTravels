@@ -1,13 +1,13 @@
-// / <reference types="Cypress" />
-// / <reference types="cypress-iframe" />
-// / <reference types="cypress-xpath" />
+/// <reference types="Cypress" />
+/// <reference types="cypress-iframe" />
+/// <reference types="cypress-xpath" />
 import UserDetailsPage from "../../support/pageObjects/UserDetailsPage";
 import BookingConfirmationPage from "../../support/pageObjects/BookingConfirmationPage";
 import PaymentDetailsPage from "../../support/pageObjects/PaymentDetailsPage";
 import ErrorMessagesSectionPage from "../../support/pageObjects/ErrorMessagesSectionPage";
 import "cypress-iframe";
 
-describe.skip("Single User Registration Flow Test cases", function () {
+describe("Single User Registration Flow Test cases", function () {
     before(function () { // runs once before all tests in the block
         cy.fixture("singleUserDataExample").then(function (data) {
             this.data = data;
@@ -75,7 +75,7 @@ describe.skip("Single User Registration Flow Test cases", function () {
     });
     
     const testData = require('../../fixtures/multipleUserDataExample.json')
-    describe.only("Multiple User Registration Flow Test cases", function () {
+    describe("Multiple User Registration Flow Test cases", function () {
       beforeEach(function () { // runs once before all tests in the block
         cy.fixture("singleUserDataExample").then(function (data) {
           this.data = data;
