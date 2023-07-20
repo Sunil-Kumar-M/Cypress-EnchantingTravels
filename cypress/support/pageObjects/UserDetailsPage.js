@@ -1,106 +1,107 @@
 /// <reference types="Cypress" />
 /// <reference types="cypress-iframe" />
-import 'cypress-iframe'
+/// <reference types="cypress-xpath" />
 
 class UserDetailsPage {
+  getLeadPassendersFormTitle() {
+    return cy.get(".section__title");
+  }
 
-    getLeadPassendersFormTitle(){
-        return cy.get('.section__title')
-    }
+  getTitleDropdown() {
+    return cy.get("select[data-testid='title']");
+  }
 
-    getTitleDropdown(){
-        return cy.get("select[data-testid='title']")
-    }
+  getFirstNameField() {
+    return cy.get('input[data-testid="firstName"]');
+  }
 
-    getFirstNameField(){
-        return cy.get('input[data-testid="firstName"]')
-    }
+  getMiddleNameField() {
+    return cy.get('input[data-testid="middleName"]');
+  }
 
-    getMiddleNameField(){
-        return cy.get('input[data-testid="middleName"]')
-    }
+  getCheckBoxForMiddleName() {
+    return cy.get("");
+  }
 
-    getCheckBoxForMiddleName(){
-        return cy.get('')
-    }
-    
-    getLastNameField(){
-        return cy.get('input[data-testid="lastName"]')
-    }
+  getLastNameField() {
+    return cy.get('input[data-testid="lastName"]');
+  }
 
-    getDateOfBirth(){
-        return cy.get('input[data-testid="dateOfBirth"]')
-    }
+  getDateOfBirth() {
+    return cy.get('input[data-testid="dateOfBirth"]');
+  }
 
-    getgenderDropdown(){
-        return cy.get('select[data-testid="gender"]')
-    }
+  getgenderDropdown() {
+    return cy.get('select[data-testid="gender"]');
+  }
 
-    getEmailAddressField(){
-        return cy.get('input[data-testid="email"]')
-    }
+  getEmailAddressField() {
+    return cy.get('input[data-testid="email"]');
+  }
 
-    getPhoneNumberField(){
-        return cy.get('input[data-testid="phoneNumber"]')
-    }
+  getPhoneNumberField() {
+    return cy.get('input[data-testid="phoneNumber"]');
+  }
 
-    getAddressField(){
-        return cy.get('input[placeholder="Start typing and select your address"]')
-    }
+  getAddressField() {
+    return cy.get('input[placeholder="Start typing and select your address"]');
+  }
 
-    getEnterAddressManualButton(){
-        return cy.get('.btn.btn--link')
-    }
+  getEnterAddressManualButton() {
+    return cy.get(".btn.btn--link");
+  }
 
-    getAddressLineOneField(){
-        return cy.get('input[data-testid="addressLineOne"]')
-    }
+  getAddressLineOneField() {
+    return cy.get('input[data-testid="addressLineOne"]');
+  }
 
-    getAddressLineTwoField(){
-        return cy.get('input[data-testid="addressLineTwo"]')
-    }
+  getAddressLineTwoField() {
+    return cy.get('input[data-testid="addressLineTwo"]');
+  }
 
-    getCityField(){
-        return cy.get('input[data-testid="city"]')
-    }
+  getCityField() {
+    return cy.get('input[data-testid="city"]');
+  }
 
-    getStateField(){
-        return cy.get('input[data-testid="stateOrCounty"]')
-    }
+  getStateField() {
+    return cy.get('input[data-testid="stateOrCounty"]');
+  }
 
-    getPostCodeField(){
-        return cy.get('input[data-testid="postCode"]')
-    }
+  getPostCodeField() {
+    return cy.get('input[data-testid="postCode"]');
+  }
 
-    getCountryDropdown(){
-        return cy.get('select[data-testid="country"]')
-    }
+  getCountryDropdown() {
+    return cy.get('select[data-testid="country"]');
+  }
 
-    getCheckBoxForEmail(){
-        return cy.get('')
-    }
+  getCheckBoxForEmail() {
+    return cy.get("");
+  }
 
-    getChatFrame(){
-        return cy.get('#hubspot-conversations-iframe', {timeout:10000})
-        .its('0.contentDocument.body').should('be.visible').then(cy.wrap)
-    }
+  getChatFrame() {
+    return cy
+      .get("#hubspot-conversations-iframe", { timeout: 10000 })
+      .its("0.contentDocument.body")
+      .should("be.visible")
+      .then(cy.wrap);
+  }
 
-    getAddAdultPassangerButton(){
-        return cy.get('.btn.btn--gray')
-    }
+  getAddAdultPassangerButton() {
+    return cy.get(".btn.btn--gray");
+  }
 
-    getSecondPassengerDetailsButton(){
-        returncy.get('#title-1')
-    }
+  getSecondPassengerDetailsButton() {
+    returncy.get("#title-1");
+  }
 
-    getSubmitButton(){
-        return cy.get('button[type="submit"]')
-    }
+  getSubmitButton() {
+    return cy.get('button[type="submit"]');
+  }
 
-    getBackButton(){
-        return cy.get('.btn.btn--outline')
-    }
-
+  getBackButton() {
+    return cy.get(".btn.btn--outline");
+  }
 }
 
 export default UserDetailsPage;

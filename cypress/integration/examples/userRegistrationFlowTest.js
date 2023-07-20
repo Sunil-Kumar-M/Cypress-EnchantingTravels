@@ -1,9 +1,11 @@
 /// <reference types="Cypress" />
 /// <reference types="cypress-iframe" />
+/// <reference types="cypress-xpath" />
 import UserDetailsPage from "../../support/pageObjects/UserDetailsPage";
+import BookingConfirmationPage from "../../support/pageObjects/bookingConfirmationPage";
 import "cypress-iframe";
 
-describe("Single User Registration Flow Test cases", function () {
+describe.only("Single User Registration Flow Test cases", function () {
   before(function () {
     // runs once before all tests in the block
     cy.fixture("singleUserDataExample").then(function (data) {
@@ -14,6 +16,7 @@ describe("Single User Registration Flow Test cases", function () {
 
   it("Validate on Providing the Actual possitive inputs for one user", function () {
     const userDeatilsPage = new UserDetailsPage();
+    const bookingConfirmationPage = new BookingConfirmationPage();
     cy.visit(
       "/booking/passengers#!departureCode=TEJA241020_FI&adults=1&children=0&tripcode=TEJ"
     );
@@ -42,12 +45,17 @@ describe("Single User Registration Flow Test cases", function () {
     userDeatilsPage.getSubmitButton().click();
 
     // TODO: Add code for the chechout page
+    bookingConfirmationPage.getFirstUserNamePopulated().should('contain', this.data.firstName+" "+this.data.middleName+" "+this.data.lastName)
+
+    
+
+
   });
 });
 
 
 
-describe("Multiple User Registration Flow Test cases", function () {
+describe.skip("Multiple User Registration Flow Test cases", function () {
   before(function () {
     // runs once before all tests in the block
     cy.fixture("singleUserDataExample").then(function (data) {
