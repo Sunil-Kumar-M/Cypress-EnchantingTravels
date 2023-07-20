@@ -81,11 +81,24 @@ class UserDetailsPage {
     }
 
     getChatFrame(){
-        return cy.frameLoaded('#hubspot-conversations-iframe').its('body').should('not.be.empty')
-        .then(() => {
-            // cy.frameLoaded('#hubspot-conversations-iframe')
-            cy.iframe().find('button[aria-label="Close live chat"]').click()
-        })
+        return cy.get('#hubspot-conversations-iframe', {timeout:10000})
+        .its('0.contentDocument.body').should('be.visible').then(cy.wrap)
+    }
+
+    getAddAdultPassangerButton(){
+        return cy.get('.btn.btn--gray')
+    }
+
+    getSecondPassengerDetailsButton(){
+        returncy.get('#title-1')
+    }
+
+    getSubmitButton(){
+        return cy.get('button[type="submit"]')
+    }
+
+    getBackButton(){
+        return cy.get('.btn.btn--outline')
     }
 
 }
