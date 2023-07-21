@@ -92,7 +92,7 @@ class UserDetailsPage {
   }
 
   getSecondPassengerDetailsButton() {
-    returncy.get("#title-1");
+    return cy.get("#title-1");
   }
 
   getSubmitButton() {
