@@ -1,7 +1,7 @@
 # Enchanting Travels Cypress Automation
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Build Status](https://travis-ci.org/yourusername/projectname.svg?branch=master)](https://github.com/Sunil-Kumar-M/Cypress-EnchantingTravels/tree/main)
+[![EnchantingTravels Automation](https://github.com/Sunil-Kumar-M/Cypress-EnchantingTravels/actions/workflows/ci.yml/badge.svg?branch=main&event=check_run)](https://github.com/Sunil-Kumar-M/Cypress-EnchantingTravels/actions/workflows/ci.yml)
 
 ## Description
 
@@ -12,7 +12,7 @@ This project has a capability to handle multiple browsers and it can abel to run
 - [Installation For Local Run](#InstallationForLocalRun)
 - [Installation For CI/CD Run](#InstallationForCloudRun)
 - [Tests](#tests)
-- [Contributing](#contributing)
+- [TestResult](#testresult)
 
 ## Installation For Local Run
 
@@ -65,3 +65,7 @@ npx cypress run --headed
     b. A Female user data with valid details.
     c. A Invalid data and error messsages validation.
 3. Validate the user inputs with valid set of the data for 2 Passengers details. 
+
+## Test Result
+### Here is the Latest Test Result from the CI GitHub Actions.
+![Alt CypressDashboard](.//cypress/SupportDocs/LatestResultOnCloudRun.png)
