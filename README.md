@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![EnchantingTravels Automation](https://github.com/Sunil-Kumar-M/Cypress-EnchantingTravels/actions/workflows/ci.yml/badge.svg)](https://github.com/Sunil-Kumar-M/Cypress-EnchantingTravels/actions/workflows/ci.yml)
+[![EnchantingTravels Wiki](https://img.shields.io/badge/EnchantingTravels-Wiki-blue)](https://github.com/Sunil-Kumar-M/Cypress-EnchantingTravels/wiki)
 
 ## Description
 
