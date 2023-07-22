@@ -10,12 +10,12 @@
     "recordDashBoardTest": "npm run test --record --key fa423514-5a84-42a7-b6a0-b5e7191bba12 --reporter mochawesome",
     "GreenKartTest": "npm run test --spec \"cypress/integration/GreenKart/*\""
   },
-  "author": "RahulShetty",
+  "author": "Sunil Kumar M",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.17.1",
     "cypress-iframe": "^1.0.1",
-    "cypress-xpath": "^2.0.1",
-    "mocha": "^10.1.0"
+    "mocha": "^10.1.0",
+    "xpath_cypress": "^1.0.2"
   }
 }

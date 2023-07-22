@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 /// <reference types="cypress-iframe" />
-/// <reference types="cypress-xpath" />
+/// <reference types="xpath_cypress" />
 import UserDetailsPage from "../../support/pageObjects/UserDetailsPage";
 import BookingConfirmationPage from "../../support/pageObjects/BookingConfirmationPage";
 import PaymentDetailsPage from "../../support/pageObjects/PaymentDetailsPage";

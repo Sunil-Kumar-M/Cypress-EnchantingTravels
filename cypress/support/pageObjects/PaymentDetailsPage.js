@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 /// <reference types="cypress-iframe" />
-/// <reference types="cypress-xpath" />
+/// <reference types="xpath_cypress" />
 
 class PaymentDetailsPage {
 
